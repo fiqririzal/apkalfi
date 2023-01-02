@@ -22,19 +22,20 @@ class PinjamanController extends Controller
         //     'tgl_kembali' => 'required',
         // ]);
 
-
-        $table_no = Pinjaman::get(); // nantinya menggunakan database dan table sungguhan
+        // $id = Pinjaman::get('id');
+                // $n = 100101010;
+        // $no_pinjam = '0000'  ;
+        // $auto=substr($no_pinjam,4);
+        // $auto=intval($auto)+1;
+        // @for ($auto = 0000; $auto < $n; $auto++);
+        $table_no = Pinjaman::count(); // nantinya menggunakan database dan table sungguhan
         $tgl = substr(str_replace( '-', '', Carbon\carbon::now()), 0,8);
 
         $no= $tgl.$table_no;
         $auto=substr($no,8);
         $auto=intval($auto)+1;
         $auto_number=substr($no,0,8).str_repeat(0,(4-strlen($auto))).$auto;
-        // $n = 100101010;
-        // $no_pinjam = '0000'  ;
-        // $auto=substr($no_pinjam,4);
-        // $auto=intval($auto)+1;
-        // @for ($auto = 0000; $auto < $n; $auto++);
+
         $pinjaman = Pinjaman::create([
             'no_pinjam' =>$auto_number ,
             'nama'=>$request->nama,

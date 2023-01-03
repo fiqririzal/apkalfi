@@ -20,7 +20,11 @@ Route::get('/', function () {
 });
 Route::get('/datapinjaman','PinjamanController@get');
 Route::post('/peminjaman','PinjamanController@store');
-// Route::post('/peminjaman/id','PinjamanController@edit');
+Route::get('/peminjaman/print','PinjamanController@cetak_pdf');
+Route::get('/peminjaman/print/{id}','PinjamanController@print_pdf');
 Route::get('/pinjaman/{id}','PinjamanController@destroy');
+Route::get('/home',function(){
+    return view('/layouts.home');
+});
 });
 

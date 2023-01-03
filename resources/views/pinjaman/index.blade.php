@@ -10,6 +10,8 @@
                 <button type="button" class="btn btn-outline-primary block" data-toggle="modal" data-target="#exampleModal">
                     Tambah
                 </button>
+                <a href="{{('/peminjaman/print')}}" target="_blank"class="btn btn-outline-primary block">print</a>
+
             </div>
 
             <div class="card-body">
@@ -21,7 +23,7 @@
                                 <th width="5%">NO</th>
                                 <th>No Pinjam</th>
                                 <th>NAMA</th>
-                                <th>KETERANGAN</th>
+                                <th>SATUAN KERJA</th>
                                 <th>NO LAPTOP</th>
                                 <th>TGL PINJAM</th>
                                 <th>TANGGAL KEMBALI</th>
@@ -42,10 +44,10 @@
                                         {{-- <form action="/category/delete/{{ $item->id }}" method="post"> --}}
                                         {{-- @csrf --}}
                                         {{-- <a href="/category/{{ $item->id }}" class="btn btn-info btn-sm">Print</a> --}}
-                                        <button id="editData" class="btn btn-warning btn-sm">Edit</a>
-                                        <button id="editData" class="btn btn-info btn-sm">print</a>
+                                        <button id="editData" class="btn btn-warning btn-sm">Edit</button>
+                                        <a href="/peminjaman/print/{{$item->id}}" target="_blank" class="btn btn-info btn-sm">print</a>
                                             <button onclick="handleDelete({{ $item->id }})"
-                                                class="btn btn-danger btn-sm">Delete</button>
+                                        class="btn btn-danger btn-sm">Delete</button>
 
                                             {{-- <input type="submit" class="btn btn-danger btn-sm" value="delete"> --}}
                                             {{-- </form> --}}
@@ -129,10 +131,10 @@
                             <label for="tgl_pinjam">Tanggal Pinjam</label>
                             <input type="text" class="form-control" id="datepicker" name="tgl_pinjam">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="tgl_kembali">Tanggal Kembali</label>
                             <input type="text" class="form-control" id="datepicker2" name="tgl_kembali">
-                        </div>
+                        </div> --}}
 
                         <button class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button class="btn btn-primary">Simpan</button>

@@ -8,7 +8,7 @@
                 <div class="table-responsive">
                     <h3>Laporan Peminjaman Laptop</h3>
 
-                    <table class="table mb-0" border="1">
+                    <table class="table mb-0" border="1px">
                         <thead>
                             <tr>
                                 <th width="5%">NO</th>

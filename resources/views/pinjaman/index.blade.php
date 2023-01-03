@@ -44,10 +44,13 @@
                                         {{-- <form action="/category/delete/{{ $item->id }}" method="post"> --}}
                                         {{-- @csrf --}}
                                         {{-- <a href="/category/{{ $item->id }}" class="btn btn-info btn-sm">Print</a> --}}
-                                        <button id="editData" class="btn btn-warning btn-sm">Edit</button>
-                                        <a href="/peminjaman/print/{{$item->id}}" target="_blank" class="btn btn-info btn-sm">print</a>
-                                            <button onclick="handleDelete({{ $item->id }})"
-                                        class="btn btn-danger btn-sm">Delete</button>
+
+                                        <a href="/pinjaman/edit/{{$item->id}}"  class="btn btn-outline-secondary block">edit</a>
+                                        <a href="/peminjaman/print/{{$item->id}}" target="_blank" class="btn btn-outline-secondary block">print</a>
+                                            {{-- <button onclick="handleDelete({{ pinjaman/$item->id }})"
+                                        class="btn btn-danger btn-sm">Delete</button> --}}
+                                        {{-- <a href="pinjaman/{{$item->id}}" class="btn btn-danger">Ya Hapus</a> --}}
+
 
                                             {{-- <input type="submit" class="btn btn-danger btn-sm" value="delete"> --}}
                                             {{-- </form> --}}
@@ -109,28 +112,44 @@
                     </button>
                 </div>
                 <div class="modal-body">
+
                     <form action="{{ url('/peminjaman') }}" method="post">
                         @csrf
-                        <div class="form-group">
-                            <label for="no_pinjam">No Pinjam</label>
-                            <input type="text" class="form-control" id="no_pinjam" name="no_pinjam">
-                        </div>
+
+                            {{-- <div class="form-group">
+                                <label for="no_pinjam">no_pinjam</label>
+                                <input type="text" class="form-control" value="{{$kd}}"id="no_pinjam" name="no_pinjam">
+                            </div> --}}
+
+
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" class="form-control" id="nama" name="nama">
                         </div>
+                        @error('nama')
+                        <div class="alert-danger">{{$message}}</div>
+                    @enderror
                         <div class="form-group">
-                            <label for="keterangan">Keterangan</label>
+                            <label for="keterangan">Satker</label>
                             <input type="text" class="form-control" id="keterangan" name="keterangan">
                         </div>
+                        @error('keterangan')
+                        <div class="alert-danger">{{$message}}</div>
+                    @enderror
                         <div class="form-group">
                             <label for="no_laptop">No laptop</label>
                             <input type="text" class="form-control" id="no_laptop" name="no_laptop">
                         </div>
+                        @error('no_laptop')
+                        <div class="alert-danger">{{$message}}</div>
+                    @enderror
                         <div class="form-group">
                             <label for="tgl_pinjam">Tanggal Pinjam</label>
                             <input type="text" class="form-control" id="datepicker" name="tgl_pinjam">
                         </div>
+                        @error('tgl_pinjam')
+                        <div class="alert-danger">{{$message}}</div>
+                    @enderror
                         {{-- <div class="form-group">
                             <label for="tgl_kembali">Tanggal Kembali</label>
                             <input type="text" class="form-control" id="datepicker2" name="tgl_kembali">
@@ -139,6 +158,7 @@
                         <button class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button class="btn btn-primary">Simpan</button>
                     </form>
+
                 </div>
             </div>
         </div>
